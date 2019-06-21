@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://i.imgur.com/3INujrN.jpg");
+    
+    text-align: center;
+    
+    background-color:purple;  
+
+    font-family: "Arial Black", Gadget, sans-serif;
+
+}
+#start-btn{
+align-content: space-between;
+
+padding-top:50px;
+padding-left: 50px;
+padding-right: 50px;
+padding-bottom: 75px;
+}

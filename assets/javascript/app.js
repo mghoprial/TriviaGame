@@ -1,12 +1,3 @@
-//*****Psu-Psu-Psuco-Code-Psu-Psu-Psuco-Code-**************************
-//start button
-//make a timer that counts down from 90 seconds.  Alert if Time is up
-//create multiple choice or T/F questions with checkmarks that fill
-//need to create a "complete" button
-// tally a score when "complete" button is hit while also stopping timer
-//********************************************************************
-
-
 let gameTimer;
 
 const questions = 
@@ -15,9 +6,6 @@ const questions =
     answer: true
     },
     { prompt: "Ringo Starr is the best Beatle",
-    answer: false
-    },
-    { prompt: "True or false- you have good taste in music?",
     answer: false
     },
     { prompt: "True or flase?",
@@ -33,9 +21,11 @@ const questions =
     answer: false
     }
 ]
+var score = 0;
+
 
 function renderQuesions(){
-console.log(renderQuesions);
+console.log("rendering questions" + renderQuesions);
 
 let $ol= $("<ol>");
 
@@ -47,36 +37,67 @@ for (let i=0; i<questions.length; i++){
     let $trueButton = $("<button>");
     $trueButton.text('true');
     $trueButton.attr('data-answer', questions[i].prompt);
-        $trueButton.attr('data-value', 'true')
-        $li.append($trueButton);
+    $trueButton.attr('class', "Btn");
+    $trueButton.attr('value', "true");
+    $trueButton.attr('id', "trueBtn");
+    $trueButton.attr('data-value', 'true')
+    $li.append($trueButton);
+    
+    
+    
 
-        let $falseButton = $("<button>");
-        $falseButton.text('false');
-        $falseButton.attr('data-answer', questions[i].prompt);
+    
+    
+    let $falseButton = $("<button>");
+    $falseButton.text('false');
+    $falseButton.attr('data-answer', questions[i].prompt);
+    $falseButton.attr('class', "Btn");
+    $trueButton.attr('value', "false");
+    $falseButton.attr('id', "falseBtn");
         $falseButton.attr('data-value', 'false');
         $li.append($falseButton);
-
+        
         $ol.append($li);
+    }
+    
+    
+    
+    $('.questions').append($ol);
+    
 }
+ 
 
-
-
-$('.questions').append($ol);
-
-}
 
 
 function stopGame() {
     clearTimeout(gameTimer);
+    alert ("Quiz Over!")
+    //Your Score:0"/7");
 }
 
-$(document).ready(function() {
 
+
+
+$(document).ready(function() {
+    
     $('#start-btn').on('click', function() {
         $(this).hide();
+        alert ("you have 30 seconds to complete this very difficult quiz!")
         renderQuesions();
-        gameTimer = setTimeout(stopGame, 90000);
+        gameTimer = setTimeout(stopGame, 30000);
+        $(".Btn").on('click', function(){
+            if(!$(this).val()){
+                $(this).addClass("btn btn-danger");
+                $("#trueBtn").attr("disabled", true);
+                
+            } else {
+                $(this).addClass("btn btn-primary");
+                $("#falseBtn").attr("disabled", true);
+
+            }
+            console.log("clicked");
+        })
     });
 
-
+          
 })
