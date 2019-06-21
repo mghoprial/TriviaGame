@@ -67,9 +67,8 @@ $(document).ready(function () {
             $trueButton.text('true');
             $trueButton.attr('answer', questions[i].prompt);
             $trueButton.attr('class', "Btn");
-            $trueButton.attr('value', "true");
+            $trueButton.attr('data-value', 'true');
             $trueButton.attr('id', "trueBtn");
-            $trueButton.attr('data-value', 'true')
             $li.append($trueButton);
 
 
@@ -81,9 +80,8 @@ $(document).ready(function () {
             $falseButton.text('false');
             $falseButton.attr('answer', questions[i].prompt);
             $falseButton.attr('class', "Btn");
-            $trueButton.attr('value', "false");
+            $falseButton.attr('data-value', "false");
             $falseButton.attr('id', "falseBtn");
-            $falseButton.attr('data-value', 'false');
             $li.append($falseButton);
 
             $ol.append($li);
@@ -118,14 +116,16 @@ $(document).ready(function () {
 
     });
     $(document).on('click', ".Btn", function () {
-        console.log($(this).val());
-        if (!$(this).val()) {
+        var choice = $(this).attr('data-value');
+
+        console.log(choice);
+        if (choice === 'false') {
             $(this).addClass("btn btn-danger");
-           // $("#trueBtn").attr("disabled", true);
+           //$("#trueBtn").attr("disabled", true);
 
         } else {
             $(this).addClass("btn btn-primary");
-           // $("#falseBtn").attr("disabled", true);
+           $("#falseBtn").attr("disabled", true);
 
         }
         //console.log("clicked");

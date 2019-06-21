@@ -10,15 +10,6 @@ This is the hardest quiz ever created.  You have been warned...
 //need to create a "complete" button
 // tally a score when "complete" button is hit while also stopping timer
 //*********************************************************
-still need to make buttons pick true OR false
-the alert should show the score of the user
-complete button should finish quiz
-
-
-need to store answers on what people click
-
-
-make sure T/F are showing
-something is wrong with their values 
-
-compare the values and update a score
+timer works
+complete button works
+the quiz itself does not work
