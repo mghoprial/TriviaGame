@@ -8,35 +8,55 @@ $(document).ready(function () {
     let intervalId;
 
 
+    var triva = {
 
-    const questions =
-        [
-            {
-                prompt: "You exist, correct?",
-                answer: true
+        score= 0,
+
+         questions = {
+            q1: 'You exist, correct?',
+        
+            q2: 'Ringo Starr is the best Beatle',
+                
+            q3: 'True or flase?',
+               
+            q4: 'Lizard people will control the world one day',
+            
+            q5: 'Boop-bop boop-boop is waaaay better than bop-bop-boop',
+             
+           
+            q6: 'Mark finally started his hw at a reasonable time and will turn it in with zero stress or worry', 
             },
-            {
-                prompt: "Ringo Starr is the best Beatle",
-                answer: false
-            },
-            {
-                prompt: "True or flase?",
-                answer: true
-            },
-            {
-                prompt: "Lizard people will control the world one day",
-                answer: true
-            },
-            {
-                prompt: "Boop-bop boop-boop is waaaay better than bop-bop-boop",
-                answer: true
-            },
-            {
-                prompt: "Mark finally started his hw at a reasonable time and will turn it in with zero stress or worry",
-                answer: false
-            }
-        ]
-    var score = 0;
+        
+    options:{
+        q1: ['sure..?', 'no, I must be a figment of someones imagination'],
+
+        q2: ['Of course he is!', 'No, George Harrison is. Paul and John were great songwriters but George was by far the most talented'],
+        
+        q3: ['true', 'flase'],
+
+        q4: ['They already do', 'wut?'],
+
+        q5: ['true', 'false'],
+
+        q6: ['yep! hes a responsible and good studnet', 'no hes staying past midnight working on this']
+        },
+    answers: {
+        q1: 'wut?',
+
+        q2: 'No, George Harrison is. Paul and John were great songwriters but George was by far the most talented',
+
+        q3: 'true',
+
+        q4: 'wut?',
+
+        q5: 'true',
+
+        q6:'no hes staying past midnight working on this'
+
+    }
+    }
+
+   
     var game = $('.game') //this is a class because of                          the dot
 
 
